@@ -1,0 +1,33 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "plop": "cross-env NODE_ENV=development plop --plopfile plopfile.cjs",
+    "build": "rimraf dist && tsc && tsc-alias -p tsconfig.json",
+    "pack:staging": "docker compose -f docker-compose.staging.yml build",
+    "test": "cross-env jest --detectOpenHandles --logHeapUsage",
+    "test:coverage": "yarn run test --coverage",
+    "start": "node main.cjs",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "@decorators/di": "^3.1.0",
+    "@decorators/express": "^3.0.0",
+    "express": "^4.19.2",
+    "reflect-metadata": "^0.2.2",
+    "signale": "^1.4.0"
+  },
+  "optionalDependencies": {
+    "husky": "^9.0.11",
+    "rimraf": "^5.0.7"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.14.9",
+    "source-map-support": "^0.5.21",
+    "tsc-alias": "^1.8.10",
+    "tsc-watch": "^6.2.0",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.5.3"
+  }
+}
